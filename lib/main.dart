@@ -1,22 +1,33 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const RecipeApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class RecipeApp extends StatelessWidget {
+  const RecipeApp({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
+  // 1
+@override
+Widget build(BuildContext context) {
+  // 2
+  final ThemeData theme = ThemeData();
+  // 3
+  return MaterialApp(
+    // 4
+    title: 'Recipe Calculator',
+    // 5
+    theme: theme.copyWith(
+        colorScheme: theme.colorScheme.copyWith(
+            primary: Colors.grey,
+            secondary: Colors.black,
+        ),
+    ),
+    // 6
+    home: const MyHomePage(title: 'Recipe Calculator'),
+  );
+}
+
 }
 
 class MyHomePage extends StatefulWidget {
